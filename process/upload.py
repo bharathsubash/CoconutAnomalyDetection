@@ -86,8 +86,8 @@ def upload_to_s3(image_path, s3_client):
 def process_folder(folder_path):
     s3_client = boto3.client(
         's3',
-        aws_access_key_id=AWS_ACCESS_KEY,
-        aws_secret_access_key=AWS_SECRET_KEY,
+        aws_access_key_id=AWS_A_KEY,
+        aws_secret_access_key=AWS_S_KEY,
         region_name=S3_REGION
     )
 
