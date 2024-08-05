@@ -14,6 +14,13 @@ client = MongoClient("mongodb://localhost:27017/")  # Replace with your MongoDB 
 db = client['aerialFarm']  # Replace with your database name
 collection = db['farm_drone']  # Replace with your collection name
 
+# AWS S3 configuration
+AWS_ACCESS_KEY = 'AKIATSY4E6IQYDYFCKET'
+AWS_SECRET_KEY = 'siL48HLjLHNE/ld8+MPLxjh9ikpD5muTD2qW7BxS'
+S3_BUCKET = 'aerial-farm'
+S3_REGION = 'ap-south-1'  # e.g., us-east-1
+
+
 def resize_image(image_path):
     img = Image.open(image_path)
 
@@ -86,8 +93,8 @@ def upload_to_s3(image_path, s3_client):
 def process_folder(folder_path):
     s3_client = boto3.client(
         's3',
-        aws_access_key_id=AWS_A_KEY,
-        aws_secret_access_key=AWS_S_KEY,
+        aws_access_key_id=AWS_ACCESS_KEY,
+        aws_secret_access_key=AWS_SECRET_KEY,
         region_name=S3_REGION
     )
 
@@ -107,7 +114,6 @@ def process_folder(folder_path):
 
 
 def store_metadata_in_mongo(metadata, image_name):
-
     document = {
         'imageUrl': image_name,
         'userId':USERID,
