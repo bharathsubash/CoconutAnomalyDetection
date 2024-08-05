@@ -14,9 +14,6 @@ client = MongoClient("mongodb://localhost:27017/")  # Replace with your MongoDB 
 db = client['aerialFarm']  # Replace with your database name
 collection = db['farm_drone']  # Replace with your collection name
 
-# AWS S3 configuration
-
-
 def resize_image(image_path):
     img = Image.open(image_path)
 
