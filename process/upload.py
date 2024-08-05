@@ -15,10 +15,6 @@ db = client['aerialFarm']  # Replace with your database name
 collection = db['farm_drone']  # Replace with your collection name
 
 # AWS S3 configuration
-AWS_ACCESS_KEY = 'AKIATSY4E6IQYDYFCKET'
-AWS_SECRET_KEY = 'siL48HLjLHNE/ld8+MPLxjh9ikpD5muTD2qW7BxS'
-S3_BUCKET = 'aerial-farm'
-S3_REGION = 'ap-south-1'  # e.g., us-east-1
 
 
 def resize_image(image_path):
